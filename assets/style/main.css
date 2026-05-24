@@ -1,0 +1,259 @@
+@import url('https://fonts.googleapis.com/css2?family=Google+Sans+Code:ital,wght,MONO@0,300..800,1;1,300..800,1&display=swap');
+
+/* ===== FONT FAMILY ===== */
+.font-gildadisplay{ 
+  /* primary text judul*/
+   font-family: "Gilda Display", serif;
+} 
+
+.font-googleflex {
+  /* secondary text pendukung */
+  font-family: "Google Sans Flex", sans-serif;
+}
+
+.font-googlesans{
+  /* text judul */
+ font-family: "Google Sans Code", monospace;
+   font-style: normal;
+  font-variation-settings:
+    "slnt" 0,
+    "wdth" 100,
+    "GRAD" 0,
+    "ROND" 0;
+}
+
+.font-cormorant {
+  font-family: 'Cormorant Garamond', serif;
+}
+
+.font-greatvibes {
+  font-family: 'Great Vibes', cursive;
+}
+
+
+
+/* ===== COLORS ===== */
+.color-primary {
+  color: #8b3a52;
+}
+
+.color-secondary {
+  color: #c9788a;
+}
+
+.color-light {
+  color: #fff7f8;
+}
+
+/* ===== BACKGROUND ===== */
+.bg-wedding {
+  background: linear-gradient(135deg, #fde8e8 0%, #fce4d6 40%, #fadadd 70%, #fce8f0 100%);
+}
+
+.bg-card {
+  background: rgba(255, 255, 255, 0.55);
+  backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 182, 193, 0.4);
+}
+
+/* ===== PROGRESS BAR ===== */
+.progress-track {
+  background: rgba(201, 120, 138, 0.2);
+}
+
+.progress-fill {
+  background: linear-gradient(90deg, #e8a0b0, #c9788a);
+}
+
+/* ===== BUTTONS ===== */
+.btn-ier {
+  font-family: "Gilda Display", serif;
+  font-size: 20px;
+  color: #8b3a52;
+  border: 2px solid #c9788a;
+  background: transparent;
+  cursor: pointer;
+}
+
+.btn-ier:hover {
+  background: #8b3a52;
+  color: #fff7f8;
+}
+
+.btn-ilem {
+  font-family: "Gilda Display", serif;
+  font-size: 20px;
+  color: #fff7f8;
+  border: 2px solid #8b3a52;
+  background: #8b3a52;
+  cursor: pointer;
+}
+
+.btn-ilem:hover {
+  background: #6d2c40;
+}
+
+/* ===== DEKORASI ===== */
+.deco-ring-1 {
+  width: 320px;
+  height: 320px;
+  top: -90px;
+  right: -90px;
+  border: 1px solid rgba(201, 120, 138, 0.15);
+}
+
+.deco-ring-2 {
+  width: 200px;
+  height: 200px;
+  bottom: 40px;
+  left: -60px;
+  border: 1px solid rgba(201, 120, 138, 0.15);
+}
+
+/* ===== TEXT SIZES ===== */
+.text-greeting {
+  font-size: clamp(36px, 8vw, 68px);
+  line-height: 1.2;
+  font-weight: 300;
+}
+
+.text-choose {
+  font-size: clamp(28px, 6vw, 48px);
+  font-weight: 300;
+}
+
+.text-loading-title {
+  font-size: clamp(20px, 4vw, 28px);
+  font-weight: 300;
+}
+
+.text-label {
+  font-size: 14px;
+  font-weight: 600;
+  letter-spacing: 0.2em;
+}
+
+.text-sub {
+  font-size: 13px;
+  letter-spacing: 0.2em;
+}
+
+.text-quote {
+  line-height: 1.8;
+  font-weight: 300;
+  font-style: italic;
+} 
+
+/* ===== ANIMATIONS ===== */
+@keyframes fall {
+  0% { transform: translateY(-20px) rotate(0deg); opacity: 0.5; }
+  100% { transform: translateY(110vh) rotate(360deg); opacity: 0; }
+}
+
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(24px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes heartbeat {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.15); }
+}
+
+.animate-heartbeat {
+  animation: heartbeat 1.5s ease-in-out infinite;
+}
+
+
+/* ===== CAESAR CIPHER ===== */
+.cipher-box {
+  width: 44px;
+  height: 52px;
+  border: 2px solid #c9788a;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: 'Gilda Display', serif;
+  font-size: 22px;
+  font-weight: 400;
+  color: #8b3a52;
+  background: rgba(255, 255, 255, 0.6);
+  letter-spacing: 0.05em;
+}
+
+.answer-box {
+  width: 44px;
+  height: 52px;
+  border: 2px solid rgba(201, 120, 138, 0.4);
+  border-radius: 10px;
+  text-align: center;
+  font-family: 'Gilda Display', serif;
+  font-size: 22px;
+  font-weight: 400;
+  color: #8b3a52;
+  background: rgba(255, 255, 255, 0.6);
+  outline: none;
+  transition: border-color 0.3s ease;
+  text-transform: uppercase;
+  caret-color: #8b3a52;
+}
+
+.answer-box:focus {
+  border-color: #8b3a52;
+  background: rgba(255, 255, 255, 0.9);
+}
+
+.answer-box.correct {
+  border-color: #4caf50;
+  background: rgba(76, 175, 80, 0.1);
+}
+
+.answer-box.wrong {
+  border-color: #e57373;
+  background: rgba(229, 115, 115, 0.1);
+  animation: shake 0.4s ease;
+}
+
+@keyframes shake {
+  0%, 100% { transform: translateX(0); }
+  25% { transform: translateX(-6px); }
+  75% { transform: translateX(6px); }
+}
+
+/* Button Lampu */
+.btn-hint {
+  background: rgba(255, 235, 150, 0.3);
+  border: 1.5px solid rgba(255, 200, 50, 0.5);
+  color: #c9a84c;
+  cursor: pointer;
+}
+
+.btn-hint:hover {
+  background: rgba(255, 235, 150, 0.6);
+  color: #a07830;
+  transform: scale(1.1);
+  box-shadow: 0 0 12px rgba(255, 220, 50, 0.4);
+}
+
+
+
+/* ===== SWEET ALERTS ===== */
+.swal-custom-popup {
+  font-family: "Google Sans Flex", sans-serif;
+}
+
+.swal-custom-title {
+ font-family: "Google Sans Flex", sans-serif;
+  color: #8b3a52;
+}
+
+.swal-custom-text {
+  font-family: "Google Sans Code", monospace;
+  font-size: 0.8em;
+  color: #c9788a;
+}
+
+.swal-custom-button {
+  font-family: "Gilda Display", serif;
+}

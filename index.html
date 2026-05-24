@@ -1,16 +1,217 @@
 <!doctype html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link rel="stylesheet" href="../assets/style/style.css" />
-    <title>Rei Meli</title>
-  </head>
-  <body class="bg-red-50">
-    <h1>Happy Wedding</h1>
-  </body>
-  <!-- Tailwind v3.4 - Versi stabil & kompatibel semua browser -->
+<html lang="id">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&family=Great+Vibes&family=Jost:wght@300;400&display=swap"
+    rel="stylesheet" />
+  <link href="https://cdn.jsdelivr.net/npm/remixicon@4.0.0/fonts/remixicon.css" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11.26.24/dist/sweetalert2.min.css" />
+  <link rel="stylesheet" href="assets/style/main.css" />
+  <title>Rei Meli</title>
+</head>
+
+<body class="min-h-screen overflow-hidden relative bg-wedding">
+
+  <!-- Dekorasi lingkaran -->
+  <div class="fixed rounded-full pointer-events-none deco-ring-1"></div>
+  <div class="fixed rounded-full pointer-events-none deco-ring-2"></div>
+
+  <!-- Kelopak bunga -->
+  <div id="petals" class="fixed inset-0 pointer-events-none z-0"></div>
+
+  <!-- SCREEN 1: Hi Pengantin Baru -->
+  <div id="screen1" class="fixed inset-0 flex flex-col items-center justify-center z-10" style="opacity:1;">
+    <div class="text-center">
+      <h1 id="s1-main" class="font-gildadisplay text-greeting color-primary" style="opacity:0;">
+        Hi, Pengantin Baru!
+      </h1>
+      <p id="s1-names" class="font-googleflex text-sub mt-4 color-secondary" style="opacity:0;">
+        Atmanegara &amp; Marthina
+      </p>
+    </div>
+  </div>
+
+  <!-- SCREEN 2: Loading 1 -->
+  <div id="screen2" class="fixed inset-0 flex flex-col items-center justify-center z-10 pointer-events-none"
+    style="opacity:0;">
+    <div class="text-center rounded-3xl px-10 py-12 bg-card" style="width:360px;max-width:90vw;box-sizing:border-box;">
+      <h2 class="font-googleflex text-label uppercase mb-2 color-secondary">mempersiapkan sesuatu</h2>
+      <p id="loadingText1"
+        class="font-gildadisplay text-sub italic mb-8 color-secondary transition-opacity duration-300"
+        style="min-height:20px;">
+        lagi nyiapin kenangan... 0%
+      </p>
+      <div class="w-full rounded-full overflow-hidden mb-3 progress-track" style="height:4px;">
+        <div id="progressBar1" class="h-full rounded-full transition-all duration-300 progress-fill" style="width:0%;">
+        </div>
+      </div>
+      <p id="progressPct1" class="font-gildadisplay color-secondary flex items-center justify-center gap-2"
+        style="font-size:12px;">
+        <i class="ri-loader-fill inline-block animate-spin" aria-hidden="true"></i>
+        <span id="progressPctNumber1" style="letter-spacing:0.1em;">0%</span>
+      </p>
+    </div>
+  </div>
+
+  <!-- SCREEN 3: Pilih Nama -->
+  <div id="screen3" class="fixed inset-0 flex flex-col items-center justify-center z-10 pointer-events-none"
+    style="opacity:0;">
+    <div class="text-center">
+      <h2 class="font-gildadisplay text-choose mb-2 color-primary">Kamu siapa?</h2>
+      <p class="font-googleflex mb-10 color-secondary" style="font-size:13px;">Pilih namamu untuk memulai misi</p>
+      <div class="flex gap-5 justify-center flex-wrap">
+        <button onclick="chooseName('IER')"
+          class="px-10 py-4 rounded-full transition-all duration-300 hover:-translate-y-1 btn-ier">
+          IER <i class="ri-hand-heart-fill"></i>
+        </button>
+        <button onclick="chooseName('ILEM')"
+          class="px-10 py-4 rounded-full transition-all duration-300 hover:-translate-y-1 btn-ilem">
+          ILEM <i class="ri-heart-2-fill "></i>
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- SCREEN 4: Loading 2 (paralel) -->
+  <div id="screen4" class="fixed inset-0 flex flex-col items-center justify-center z-10 pointer-events-none"
+    style="opacity:0;">
+    <div class="text-center rounded-3xl px-10 py-12 bg-card" style="min-width:320px;max-width:90vw;">
+
+      <!-- FASE 1: Teks personal -->
+      <div id="phase1Text" class="mb-8" style="min-height:120px;">
+        <p id="personalText"
+          class="font-cormorant text-quote text-[15px] sm:text-[16px] md:text-[18px] lg:text-[21px] xl:text-[22px] color-primary transition-opacity duration-500"
+          style="opacity:0;"></p>
+      </div>
+
+      <hr class="mb-6" style="border-color:rgba(201,120,138,0.2);">
+
+      <!-- FASE 2: Progress instalasi -->
+      <p class="font-googleflex text-label uppercase mb-4 color-secondary">Sabar yaa pengantin baru, lagi loading...</p>
+      <p id="loadingText2" class="font-googlesans mb-6 color-secondary transition-opacity duration-300"
+        style="font-size:13px;min-height:20px;">
+        Memulai instalasi...
+      </p>
+      <div class="w-full rounded-full overflow-hidden mb-3 progress-track" style="height:4px;">
+        <div id="progressBar2" class="h-full rounded-full transition-all duration-500 progress-fill" style="width:0%;">
+        </div>
+      </div>
+      <p id="progressPct2" class="font-gildadisplay color-secondary flex items-center justify-center gap-2"
+        style="font-size:12px;">
+        <i class="ri-loader-fill inline-block animate-spin" aria-hidden="true"></i>
+        <span id="progressPctNumber2" style="letter-spacing:0.1em;">0%</span>
+      </p>
+    </div>
+  </div>
+
+  <!-- SCREEN 5: Information -->
+  <div id="screen5" class="fixed inset-0 flex flex-col items-center justify-center z-10 pointer-events-none"
+    style="opacity:0;">
+    <div class="text-center rounded-3xl px-10 py-12 bg-card" style="min-width:320px;max-width:90vw;">
+      <h2 class="font-gildadisplay text-choose mb-6 color-primary">안녕하세요 <br>Annyeonghaseyo!</h2>
+      <p id="infoText"
+        class="font-gildadisplay text-quote text-[15px] sm:text-[16px] md:text-[17px] lg:text-[18px] xl:text-[19px] color-primary mb-8">
+      </p>
+      <div class="text-left mb-8 rounded-2xl px-6 py-4" style="background:rgba(201,120,138,0.08);">
+        <p class="font-googleflex mb-3 color-primary" style="font-size:13px;font-weight:400;"><i
+            class="ri-puzzle-2-fill"></i> <strong>MISI KAMU:</strong></p>
+        <p class="font-googlesans color-secondary" style="font-size:13px;">
+          Pecahkan semua kode yang telah disiapkan untuk membuktikan bahwa kamu benar-benar mengenal pasanganmu.
+        </p>
+        <br>
+        <p class="font-googleflex mb-2 color-primary" style="font-size:13px;font-weight:400;"><i
+            class="ri-settings-3-fill"></i> <strong>PERATURAN:</strong></p>
+        <ol class="font-googlesans color-secondary list-decimal list-inside" style="font-size:13px;">
+          <li>Dilarang Google</li>
+          <li>Dilarang tanya orang lain</li>
+          <li>Dilarang nyontek</li>
+          <li>Boleh senyum-senyum sendiri <i class="ri-checkbox-fill text-rose-900"></i></li>
+          <li>Boleh nangis terharu <i class="ri-checkbox-fill text-rose-900"></i></li>
+        </ol>
+      </div>
+      <div class="gap-4 justify-center flex-wrap">
+        <button onclick="showScreen('screen5', 'screen3')"
+          class="px-10 py-4 rounded-full transition-all duration-300 hover:-translate-y-1 btn-ier">
+          Balik, Ya
+        </button>
+        <button onclick="startMission()"
+          class="px-10 py-4 rounded-full transition-all duration-300 hover:-translate-y-1 btn-ilem">
+          준비
+          JOONBI
+        </button>
+      </div>
+    </div>
+  </div>
+
+
+  <!-- SCREEN 6: Caesar Cipher -->
+  <div id="screen6" class="fixed inset-0 flex flex-col items-center justify-center z-10 pointer-events-none"
+    style="opacity:0;">
+    <div class="relative text-center rounded-3xl px-10 py-12 bg-card" style="min-width:320px;max-width:90vw;">
+
+      <!-- Button Lampu pojok kanan atas -->
+      <button onclick="showCipherHint()"
+        class="absolute top-4 right-4 w-10 h-10 rounded-full flex items-center justify-center transition-all duration-300 btn-hint"
+        title="Bantuan">
+        <i class="ri-lightbulb-fill text-xl"></i>
+      </button>
+
+      <!-- Header -->
+      <p class="font-googlesans text-label uppercase mb-2 color-secondary tracking-widest">
+        <i class="ri-git-repository-private-fill"></i> caesar cipher
+      </p>
+      <h2 class="font-gildadisplay text-choose mb-2 color-primary">Pecahkan Kode!</h2>
+      <p class="font-googleflex italic mb-8 color-secondary" style="font-size:13px;">
+        Temukan kata yang tersembunyi di balik kode ini
+      </p>
+
+      <!-- Kotak Kode -->
+      <div class="flex gap-3 justify-center mb-8" id="cipherBoxes">
+        <!-- Diisi oleh JS sesuai nama yang dipilih -->
+      </div>
+
+      <!-- Input Jawaban per Huruf -->
+      <p class="font-googleflex text-label uppercase mb-3 color-secondary tracking-widest">Jawabanmu:</p>
+      <div class="flex gap-3 justify-center mb-8" id="answerBoxes">
+        <!-- Diisi oleh JS sesuai panjang jawaban -->
+      </div>
+
+      <!-- Percobaan tersisa -->
+      <p id="attemptsLeft" class="font-googleflex italic mb-4 color-secondary" style="font-size:12px;">
+        Sisa percobaan: <span id="attemptsNum">∞</span>
+      </p>
+
+      <!-- Button Submit -->
+      <button onclick="submitCipher()"
+        class="px-10 py-4 rounded-full transition-all duration-300 hover:-translate-y-1 btn-ilem">
+        <i class="ri-bard-fill"></i> SUBMIT
+      </button>
+
+    </div>
+  </div>
+
+
+
+
+
+
+  <!-- Tailwind v3.4 -->
   <script src="https://cdn.tailwindcss.com/3.4.16"></script>
+  <!-- SweetAlert2 -->
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.26.24/dist/sweetalert2.all.min.js"></script>
+  <!-- JS files -->
+  <script src="assets/javascript/petals.js"></script>
+  <script src="assets/javascript/screen.js"></script>
+  <script src="assets/javascript/loading1.js"></script>
+  <script src="assets/javascript/loading2.js"></script>
+  <script src="assets/javascript/chooseName.js"></script>
+  <script src="assets/javascript/caesar.js"></script>
+  <script src="assets/javascript/main.js"></script>
+</body>
+
 </html>
