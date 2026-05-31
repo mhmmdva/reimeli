@@ -1,17 +1,17 @@
 const personalTexts = {
   IER: [
-    "Terima kasih telah hadir, Saudara IER.",
+    "Terima kasih udah buka website nya ya mas",
     "Sistem kami telah lama menantikan kehadiranmu.",
     "Atau lebih tepatnya...",
-    "ILEM yang nungguin.",
-    "Sistem mah biasa aja. anjaaaayyy",
+    "Emeng yang nungguin.",
+    "asoooyyyy!, uhuy!",
   ],
   ILEM: [
-    "Hi, emeng!",    
-    "Yang bikin IER ngehapus DM-nya karena ga dibales.",
+    "Hi, Emeng!",    
+    "Yang bikin Mas Ier ngehapus DM-nya karena ga dibales.",
     "Sudah 1000 tahun kami menunggu anda yang mulia.",
     "Dan waktunya telah tiba.",
-    "Katanya bisa bikin Rei bengong tiap malem...",
+    "Katanya bisa bikin Mas Ier bengong tiap malem...",
   ],
 };
 

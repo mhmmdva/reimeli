@@ -3,8 +3,8 @@ const cipherData = {
         code: 'KDSSB',
         answer: 'HAPPY',
         clue: 'Ini perasaan yang selalu ada saat kalian bersama <i class="ri-emotion-happy-line"></i>',
-        successTitle: 'Tepat sekali, mas IER.',
-        successText: 'Karena itulah yang selalu ILEM rasakan bersamamu.',
+        successTitle: 'Tepat sekali, Mas Ier.',
+        successText: 'Karena itulah yang selalu Ci Ilem rasakan bersamamu.',
     },
     ILEM: {
         code: 'ZHGGLQJ',
@@ -13,6 +13,13 @@ const cipherData = {
         successTitle: 'AAHHHH ITU DIA! ',
         successText: 'Karena kalian yang paling tidak sabar menunggu hari itu.',
     },
+};
+
+const caesarSwalClass = {
+    popup: 'swal-custom-popup',
+    title: 'swal-custom-title',
+    htmlContainer: 'swal-custom-text',
+    confirmButton: 'swal-custom-button',
 };
 
 let cipherAttempts = 0;
@@ -104,14 +111,9 @@ function submitCipher() {
             title: 'Eh, isi dulu ya! 👀',
             text: 'Isi semua kotak dulu ya sebelum submit!',
             icon: 'warning',
-            confirmButtonText: '알았어 Araseo',
-            confirmButtonColor: '#8b3a52',
-            customClass: {
-                popup: 'swal-custom-popup',
-                title: 'swal-custom-title',
-                htmlContainer: 'swal-custom-text',
-                confirmButton: 'swal-custom-button',
-            },
+            buttonsStyling: false,
+            confirmButtonText: 'OK !',
+            customClass: caesarSwalClass,
         });
         return;
     }
@@ -128,35 +130,30 @@ function submitCipher() {
 
 // Jawaban benar
 function handleCipherSuccess(name, data) {
-    // Animasi kotak jadi hijau
-    const answer = data.answer;
-    for (let i = 0; i < answer.length; i++) {
-        const box = document.getElementById(`ans-${i}`);
-        if (box) {
-            box.classList.remove('wrong');
-            box.classList.add('correct');
-        }
+  const answer = data.answer;
+  for (let i = 0; i < answer.length; i++) {
+    const box = document.getElementById(`ans-${i}`);
+    if (box) {
+      box.classList.remove('wrong');
+      box.classList.add('correct');
     }
+  }
 
-    setTimeout(() => {
-        Swal.fire({
-            title: data.successTitle,
-            text: data.successText,
-            icon: 'success',
-            confirmButtonText: 'Lanjutkan Misi ',
-            confirmButtonColor: '#8b3a52',
-            allowOutsideClick: false,
-            customClass: {
-                popup: 'swal-custom-popup',
-                title: 'swal-custom-title',
-                htmlContainer: 'swal-custom-text',
-                confirmButton: 'swal-custom-button',
-            },
-        }).then(() => {
-            // Lanjut ke game berikutnya
-            showScreen('screen6', 'screen7');
-        });
-    }, 600);
+  setTimeout(() => {
+    Swal.fire({
+      title: data.successTitle,
+      text: data.successText,
+      icon: 'success',
+      buttonsStyling: false,
+      confirmButtonText: 'Lanjutkan Misi!',
+      customClass: caesarSwalClass,
+      allowOutsideClick: false,
+    }).then(() => {
+      // Caesar selesai → Coordinate Code
+      showScreen('screen6', 'screen7');
+      setTimeout(() => buildCoordinateScreen(selectedName), 800);
+    });
+  }, 600);
 }
 
 // Jawaban salah
@@ -176,17 +173,12 @@ function handleCipherFail(data, answer) {
     if (cipherAttempts < maxAttempts) {
         // Percobaan 1: popup gagal biasa
         Swal.fire({
-            title: 'No no yaa !',
+            title: 'Heiii, no no ya!',
             text: `Coba lagi, kamu pasti bisa! Ingat, setiap huruf mundur 3 posisi.`,
             icon: 'error',
+            buttonsStyling: false,
             confirmButtonText: 'coba lagi!',
-            confirmButtonColor: '#8b3a52',
-            customClass: {
-                popup: 'swal-custom-popup',
-                title: 'swal-custom-title',
-                htmlContainer: 'swal-custom-text',
-                confirmButton: 'swal-custom-button',
-            },
+            customClass: caesarSwalClass,
         }).then(() => {
             // Kosongkan semua kotak
             for (let i = 0; i < answer.length; i++) {
@@ -216,14 +208,9 @@ function handleCipherFail(data, answer) {
         </div>
       `,
             confirmButtonText: 'Mengerti, coba lagi!',
-            confirmButtonColor: '#8b3a52',
             icon: 'error',
-            customClass: {
-                popup: 'swal-custom-popup',
-                title: 'swal-custom-title',
-                htmlContainer: 'swal-custom-text',
-                confirmButton: 'swal-custom-button',
-            },
+            buttonsStyling: false,
+            customClass: caesarSwalClass,
         }).then(() => {
             for (let i = 0; i < answer.length; i++) {
                 const box = document.getElementById(`ans-${i}`);
@@ -276,14 +263,9 @@ function showCipherHint() {
         </div>
       </div>
     `,
-        confirmButtonText: 'udah, yaa',
-        confirmButtonColor: '#8b3a52',
+        confirmButtonText: 'OK !',
+        buttonsStyling: false,
         width: '360px',
-        customClass: {
-            popup: 'swal-custom-popup',
-            title: 'swal-custom-title',
-            htmlContainer: 'swal-custom-text',
-            confirmButton: 'swal-custom-button',
-        },
+        customClass: caesarSwalClass,
     });
 }
