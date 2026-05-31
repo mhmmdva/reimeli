@@ -50,10 +50,10 @@
         <div id="progressBar1" class="h-full rounded-full transition-all duration-300 progress-fill" style="width:0%;">
         </div>
       </div>
-      <p id="progressPct1" class="font-gildadisplay color-secondary flex items-center justify-center gap-2"
-        style="font-size:12px;">
+      <p id="progressPct1"
+        class="font-gildadisplay text-progress color-secondary flex items-center justify-center gap-2">
         <i class="ri-loader-fill inline-block animate-spin" aria-hidden="true"></i>
-        <span id="progressPctNumber1" style="letter-spacing:0.1em;">0%</span>
+        <span id="progressPctNumber1">0%</span>
       </p>
     </div>
   </div>
@@ -63,14 +63,14 @@
     style="opacity:0;">
     <div class="text-center">
       <h2 class="font-gildadisplay text-choose mb-2 color-primary">Kamu siapa?</h2>
-      <p class="font-googleflex mb-10 color-secondary" style="font-size:13px;">Pilih namamu untuk memulai misi</p>
-      <div class="flex gap-5 justify-center flex-wrap">
+      <p class="font-googleflex text-body mb-10 color-secondary">Pilih namamu untuk memulai misi</p>
+      <div class="flex gap-6 max-[1360px]:gap-5 max-[920px]:gap-4 max-[720px]:gap-3 max-[450px]:gap-2 justify-center flex-wrap">
         <button onclick="chooseName('IER')"
-          class="px-10 py-4 rounded-full transition-all duration-300 hover:-translate-y-1 btn-ier">
+          class="rounded-full transition-all duration-300 hover:-translate-y-1 btn-ier">
           IER <i class="ri-hand-heart-fill"></i>
         </button>
         <button onclick="chooseName('ILEM')"
-          class="px-10 py-4 rounded-full transition-all duration-300 hover:-translate-y-1 btn-ilem">
+          class="rounded-full transition-all duration-300 hover:-translate-y-1 btn-ilem">
           ILEM <i class="ri-heart-2-fill "></i>
         </button>
       </div>
@@ -84,8 +84,7 @@
 
       <!-- FASE 1: Teks personal -->
       <div id="phase1Text" class="mb-8" style="min-height:120px;">
-        <p id="personalText"
-          class="font-cormorant text-quote text-[15px] sm:text-[16px] md:text-[18px] lg:text-[21px] xl:text-[22px] color-primary transition-opacity duration-500"
+        <p id="personalText" class="font-cormorant text-quote color-primary transition-opacity duration-500"
           style="opacity:0;"></p>
       </div>
 
@@ -93,18 +92,18 @@
 
       <!-- FASE 2: Progress instalasi -->
       <p class="font-googleflex text-label uppercase mb-4 color-secondary">Sabar yaa pengantin baru, lagi loading...</p>
-      <p id="loadingText2" class="font-googlesans mb-6 color-secondary transition-opacity duration-300"
-        style="font-size:13px;min-height:20px;">
+      <p id="loadingText2" class="font-googlesans text-body mb-6 color-secondary transition-opacity duration-300"
+        style="min-height:20px;">
         Memulai instalasi...
       </p>
       <div class="w-full rounded-full overflow-hidden mb-3 progress-track" style="height:4px;">
         <div id="progressBar2" class="h-full rounded-full transition-all duration-500 progress-fill" style="width:0%;">
         </div>
       </div>
-      <p id="progressPct2" class="font-gildadisplay color-secondary flex items-center justify-center gap-2"
-        style="font-size:12px;">
+      <p id="progressPct2"
+        class="font-gildadisplay text-progress color-secondary flex items-center justify-center gap-2">
         <i class="ri-loader-fill inline-block animate-spin" aria-hidden="true"></i>
-        <span id="progressPctNumber2" style="letter-spacing:0.1em;">0%</span>
+        <span id="progressPctNumber2">0%</span>
       </p>
     </div>
   </div>
@@ -114,19 +113,18 @@
     style="opacity:0;">
     <div class="text-center rounded-3xl px-10 py-12 bg-card" style="min-width:320px;max-width:90vw;">
       <h2 class="font-gildadisplay text-choose mb-6 color-primary">안녕하세요 <br>Annyeonghaseyo!</h2>
-      <p id="infoText"
-        class="font-gildadisplay text-quote text-[15px] sm:text-[16px] md:text-[17px] lg:text-[18px] xl:text-[19px] color-primary mb-8">
+      <p id="infoText" class="font-gildadisplay text-quote color-primary mb-8">
       </p>
       <div class="text-left mb-8 rounded-2xl px-6 py-4" style="background:rgba(201,120,138,0.08);">
-        <p class="font-googleflex mb-3 color-primary" style="font-size:13px;font-weight:400;"><i
+        <p class="font-googleflex text-body mb-3 color-primary" style="font-weight:400;"><i
             class="ri-puzzle-2-fill"></i> <strong>MISI KAMU:</strong></p>
-        <p class="font-googlesans color-secondary" style="font-size:13px;">
+        <p class="font-googlesans text-body color-secondary">
           Pecahkan semua kode yang telah disiapkan untuk membuktikan bahwa kamu benar-benar mengenal pasanganmu.
         </p>
         <br>
-        <p class="font-googleflex mb-2 color-primary" style="font-size:13px;font-weight:400;"><i
+        <p class="font-googleflex text-body mb-2 color-primary" style="font-weight:400;"><i
             class="ri-settings-3-fill"></i> <strong>PERATURAN:</strong></p>
-        <ol class="font-googlesans color-secondary list-decimal list-inside" style="font-size:13px;">
+        <ol class="font-googlesans text-body color-secondary list-decimal list-inside">
           <li>Dilarang Google</li>
           <li>Dilarang tanya orang lain</li>
           <li>Dilarang nyontek</li>
@@ -136,11 +134,11 @@
       </div>
       <div class="gap-4 justify-center flex-wrap">
         <button onclick="showScreen('screen5', 'screen3')"
-          class="px-10 py-4 rounded-full transition-all duration-300 hover:-translate-y-1 btn-ier">
+          class="rounded-full transition-all duration-300 hover:-translate-y-1 btn-ier">
           Balik, Ya
         </button>
         <button onclick="startMission()"
-          class="px-10 py-4 rounded-full transition-all duration-300 hover:-translate-y-1 btn-ilem">
+          class="rounded-full transition-all duration-300 hover:-translate-y-1 btn-ilem">
           준비
           JOONBI
         </button>
@@ -166,29 +164,29 @@
         <i class="ri-git-repository-private-fill"></i> caesar cipher
       </p>
       <h2 class="font-gildadisplay text-choose mb-2 color-primary">Pecahkan Kode!</h2>
-      <p class="font-googleflex italic mb-8 color-secondary" style="font-size:13px;">
+      <p class="font-googleflex text-body italic mb-8 color-secondary">
         Temukan kata yang tersembunyi di balik kode ini
       </p>
 
       <!-- Kotak Kode -->
-      <div class="flex gap-3 justify-center mb-8" id="cipherBoxes">
+      <div class="flex flex-wrap gap-2 sm:gap-3 justify-center mb-8" id="cipherBoxes">
         <!-- Diisi oleh JS sesuai nama yang dipilih -->
       </div>
 
       <!-- Input Jawaban per Huruf -->
       <p class="font-googleflex text-label uppercase mb-3 color-secondary tracking-widest">Jawabanmu:</p>
-      <div class="flex gap-3 justify-center mb-8" id="answerBoxes">
+      <div class="flex flex-wrap gap-2 sm:gap-3 justify-center mb-8" id="answerBoxes">
         <!-- Diisi oleh JS sesuai panjang jawaban -->
       </div>
 
       <!-- Percobaan tersisa -->
-      <p id="attemptsLeft" class="font-googleflex italic mb-4 color-secondary" style="font-size:12px;">
+      <p id="attemptsLeft" class="font-googleflex text-small italic mb-4 color-secondary">
         Sisa percobaan: <span id="attemptsNum">∞</span>
       </p>
 
       <!-- Button Submit -->
       <button onclick="submitCipher()"
-        class="px-10 py-4 rounded-full transition-all duration-300 hover:-translate-y-1 btn-ilem">
+        class="rounded-full transition-all duration-300 hover:-translate-y-1 btn-ilem">
         <i class="ri-bard-fill"></i> SUBMIT
       </button>
 

@@ -210,7 +210,7 @@ function handleCipherFail(data, answer) {
           font-style: italic;
           color: #8b3a52;
           font-family: 'Cormorant Garamond', serif;
-          font-size: 17px;
+          font-size: clamp(14px, 2.8vw, 17px);
         ">
         ${data.clue}
         </div>
@@ -239,7 +239,7 @@ function showCipherHint() {
     Swal.fire({
         title: 'Masa butuh bantuan',
         html: `
-      <div style="text-align:left;font-family:'Google Sans Code',sans-serif;font-size:13px;color:#8b3a52;">
+      <div style="text-align:left;font-family:'Google Sans Code',sans-serif;font-size:clamp(12px, 2.4vw, 14px);color:#8b3a52;">
         <p style="margin-bottom:12px;font-weight:400;">
           <strong><i class="ri-book-open-line"></i> Apa itu Caesar Cipher?</strong>
         </p>
@@ -265,7 +265,7 @@ function showCipherHint() {
           padding:10px 14px;
           color:#8b3a52;
           font-family:'Gilda Display',serif;
-          font-size:16px;
+          font-size:clamp(14px, 2.8vw, 16px);
           letter-spacing:0.05em;
         ">
           V → mundur 3 → <strong>S</strong><br>
