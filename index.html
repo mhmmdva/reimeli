@@ -16,6 +16,12 @@
 </head>
 
 <body class="min-h-screen overflow-hidden relative bg-wedding">
+  <!-- Floating Back Button (muncul dari screen5 ke atas) -->
+  <button id="backBtn" onclick="confirmGoBack()"
+    class="fixed z-50 rounded-full flex items-center justify-center btn-back" style="opacity:0;pointer-events:none;"
+    title="Kembali ke pilih nama">
+    <i class="ri-arrow-go-back-fill text-xl"></i>
+  </button>
 
   <!-- Dekorasi lingkaran -->
   <div class="fixed rounded-full pointer-events-none deco-ring-1"></div>
@@ -64,14 +70,15 @@
     <div class="text-center">
       <h2 class="font-gildadisplay text-choose mb-2 color-primary">Kamu siapa?</h2>
       <p class="font-googleflex text-body mb-10 color-secondary">Pilih namamu untuk memulai misi</p>
-      <div class="flex gap-6 max-[1360px]:gap-5 max-[920px]:gap-4 max-[720px]:gap-3 max-[450px]:gap-2 justify-center flex-wrap">
+      <div
+        class="flex gap-6 max-[1360px]:gap-5 max-[920px]:gap-4 max-[720px]:gap-3 max-[450px]:gap-2 justify-center flex-wrap">
         <button onclick="chooseName('IER')"
           class="rounded-full transition-all duration-300 hover:-translate-y-1 btn-ier">
-          IER <i class="ri-hand-heart-fill"></i>
+          Mas ier <i class="ri-hand-heart-fill"></i>
         </button>
         <button onclick="chooseName('ILEM')"
           class="rounded-full transition-all duration-300 hover:-translate-y-1 btn-ilem">
-          ILEM <i class="ri-heart-2-fill "></i>
+          Ci ilem <i class="ri-heart-2-fill "></i>
         </button>
       </div>
     </div>
@@ -124,8 +131,7 @@
         <br>
         <p class="font-googleflex text-body mb-2 color-primary" style="font-weight:400;"><i
             class="ri-settings-3-fill"></i> <strong>PERATURAN:</strong></p>
-        <ol class="font-googlesans text-body color-secondary list-decimal list-inside">
-          <li>Dilarang Google</li>
+        <ol class="font-googlesans text-body color-secondary list-decimal list-inside">          
           <li>Dilarang tanya orang lain</li>
           <li>Dilarang nyontek</li>
           <li>Boleh senyum-senyum sendiri <i class="ri-checkbox-fill text-rose-900"></i></li>
@@ -133,12 +139,11 @@
         </ol>
       </div>
       <div class="gap-4 justify-center flex-wrap">
-        <button onclick="showScreen('screen5', 'screen3')"
+        <!-- <button onclick="showScreen('screen5', 'screen3')"
           class="rounded-full transition-all duration-300 hover:-translate-y-1 btn-ier">
           Balik, Ya
-        </button>
-        <button onclick="startMission()"
-          class="rounded-full transition-all duration-300 hover:-translate-y-1 btn-ilem">
+        </button> -->
+        <button onclick="startMission()" class="rounded-full transition-all duration-300 hover:-translate-y-1 btn-ilem">
           준비
           JOONBI
         </button>
@@ -185,10 +190,67 @@
       </p>
 
       <!-- Button Submit -->
-      <button onclick="submitCipher()"
-        class="rounded-full transition-all duration-300 hover:-translate-y-1 btn-ilem">
+      <button onclick="submitCipher()" class="rounded-full transition-all duration-300 hover:-translate-y-1 btn-ilem">
         <i class="ri-bard-fill"></i> SUBMIT
       </button>
+
+    </div>
+  </div>
+
+  <!-- SCREEN 7: Coordinate Code -->
+  <div id="screen7" class="fixed inset-0 flex flex-col items-center justify-center z-10 pointer-events-none"
+    style="opacity:0;">
+    <div class="relative text-center rounded-3xl px-10 py-12 bg-card" style="min-width:320px;max-width:90vw;">
+
+      <button onclick="showCoordHint()"
+        class="absolute top-4 right-4 w-10 h-10 rounded-full flex items-center justify-center transition-all duration-300 btn-hint"
+        title="Informasi">
+        <i class="ri-information-fill text-xl"></i>
+      </button>
+
+      <!-- Counter -->
+      <p id="coordCounter" class="font-jost text-label uppercase mb-2 color-secondary tracking-widest">
+        <i class="ri-map-pin-fill"></i>
+        <span>Koordinat 1 dari 3</span>
+      </p>
+
+      <!-- Koordinat -->
+      <h2 id="coordValue" class="font-cormorant text-choose mb-6 color-primary"
+        style="font-size:clamp(16px,3.5vw,24px);letter-spacing:0.05em;">
+        -6.991846, 110.422558
+      </h2>
+
+      <!-- Pertanyaan -->
+      <p class="font-cormorant italic mb-8 color-secondary" style="font-size:clamp(15px,2.5vw,18px);line-height:1.8;">
+        "Ada kenangan yang tidak akan pernah<br>terlupakan di sini? inget rasanya?"
+      </p>
+
+      <hr class="mb-6" style="border-color:rgba(201,120,138,0.2);">
+
+      <!-- Button Google Maps -->
+      <a id="mapsBtn" href="#" target="_blank" rel="noopener noreferrer"
+        class="inline-flex items-center justify-center gap-2 px-8 py-3 rounded-full mb-6 transition-all duration-300 hover:-translate-y-1 btn-ilem"
+        style="text-decoration:none;width:100%;">
+        <i class="ri-map-pin-2-fill"></i> Google Maps
+      </a>
+
+      <!-- Navigation Buttons -->
+      <div class="flex items-center justify-center gap-4">
+
+        <!-- Back Coordinate (hidden di koordinat pertama) -->
+        <button id="coordBackBtn" onclick="prevCoordinate()"
+          class="w-12 h-12 rounded-full flex items-center justify-center transition-all duration-300 hover:-translate-y-1 btn-ier"
+          style="opacity:0;pointer-events:none;">
+          <i class="ri-arrow-left-line text-xl"></i>
+        </button>
+
+        <!-- Next Coordinate -->
+        <button id="coordNextBtn" onclick="nextCoordinate()"
+          class="w-12 h-12 rounded-full flex items-center justify-center transition-all duration-300 hover:-translate-y-1 btn-ilem">
+          <i class="ri-arrow-right-line text-xl"></i>
+        </button>
+
+      </div>
 
     </div>
   </div>
@@ -209,6 +271,7 @@
   <script src="assets/javascript/loading2.js"></script>
   <script src="assets/javascript/chooseName.js"></script>
   <script src="assets/javascript/caesar.js"></script>
+  <script src="assets/javascript/coordinate.js"></script>
   <script src="assets/javascript/main.js"></script>
 </body>
 

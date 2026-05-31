@@ -8,10 +8,10 @@ const personalTexts = {
   ],
   ILEM: [
     "Hi, Emeng!",    
-    "Yang bikin Mas Ier ngehapus DM-nya karena ga dibales.",
+    "Yang bikin Mas ier ngehapus DM-nya karena ga dibales.",
     "Sudah 1000 tahun kami menunggu anda yang mulia.",
     "Dan waktunya telah tiba.",
-    "Katanya bisa bikin Mas Ier bengong tiap malem...",
+    "Katanya bisa bikin Mas ier bengong tiap malem...",
   ],
 };
 

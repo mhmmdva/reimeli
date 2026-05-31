@@ -3,15 +3,15 @@ const cipherData = {
         code: 'KDSSB',
         answer: 'HAPPY',
         clue: 'Ini perasaan yang selalu ada saat kalian bersama <i class="ri-emotion-happy-line"></i>',
-        successTitle: 'Tepat sekali, Mas Ier.',
-        successText: 'Karena itulah yang selalu Ci Ilem rasakan bersamamu.',
+        successTitle: 'Tepat sekali, Mas ier.',
+        successText: 'Karena itulah yang selalu Ci ilem rasakan bersamamu. Tanya ke Ci ilem juga ya jawabannya',
     },
     ILEM: {
         code: 'ZHGGLQJ',
         answer: 'WEDDING',
         clue: 'Ini yang sudah kalian lakukan <i class="ri-vip-diamond-fill"></i>',
         successTitle: 'AAHHHH ITU DIA! ',
-        successText: 'Karena kalian yang paling tidak sabar menunggu hari itu.',
+        successText: 'Karena kalian yang paling tidak sabar menunggu hari itu. Tanya ke Mas ier juga ya jawabannya',
     },
 };
 

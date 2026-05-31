@@ -361,3 +361,134 @@
 .swal-custom-button {
   font-family: "Gilda Display", serif;
 }
+
+.swal-confirm-actions {
+  gap: 18px !important;
+}
+
+.swal2-confirm.swal-custom-button {
+  color: #fff7f8 !important;
+  border: 2px solid #8b3a52 !important;
+  border-radius: 999px !important;
+  background: #8b3a52 !important;
+  padding: 12px 28px !important;
+  font-size: 16px !important;
+  line-height: 1.2 !important;
+  box-shadow: none !important;
+  cursor: pointer !important;
+  transition: all 0.3s ease !important;
+}
+
+.swal2-confirm.swal-custom-button:hover {
+  color: #fff7f8 !important;
+  background: #6d2c40 !important;
+}
+
+.swal2-cancel.swal-btn-ier,
+.swal2-confirm.swal-btn-ilem {
+  border-radius: 999px !important;
+  padding: 12px 28px !important;
+  font-size: 16px !important;
+  line-height: 1.2 !important;
+  box-shadow: none !important;
+  cursor: pointer !important;
+  transition: all 0.3s ease !important;
+}
+
+.swal2-cancel.swal-btn-ier {
+  color: #8b3a52 !important;
+  border: 2px solid #c9788a !important;
+  background: transparent !important;
+}
+
+.swal2-cancel.swal-btn-ier:hover {
+  color: #fff7f8 !important;
+  background: #8b3a52 !important;
+}
+
+.swal2-confirm.swal-btn-ilem {
+  color: #fff7f8 !important;
+  border: 2px solid #8b3a52 !important;
+  background: #8b3a52 !important;
+}
+
+.swal2-confirm.swal-btn-ilem:hover {
+  color: #fff7f8 !important;
+  background: #6d2c40 !important;
+}
+
+@media (max-width: 450px) {
+  .swal-confirm-actions {
+    gap: 12px !important;
+  }
+
+  .swal2-cancel.swal-btn-ier,
+  .swal2-confirm.swal-btn-ilem {
+    padding: 10px 20px !important;
+    font-size: 14px !important;
+  }
+}
+
+
+/* ===== FLOATING BACK BUTTON ===== */
+.btn-back {
+  top: 24px;
+  left: 24px;
+  width: 44px;
+  height: 44px;
+  gap: 12px;
+  background: rgba(255, 255, 255, 0.55);
+  backdrop-filter: blur(8px);
+  border: 1.5px solid rgba(201, 120, 138, 0.3);
+  color: #c9788a;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.btn-back:hover {
+  background: rgba(255, 255, 255, 0.85);
+  border-color: #8b3a52;
+  color: #8b3a52;
+  transform: scale(1.1);
+  box-shadow: 0 4px 12px rgba(139, 58, 82, 0.15);
+}
+
+@media (max-width: 1360px) {
+  .btn-back {
+    top: 22px;
+    left: 22px;
+    width: 42px;
+    height: 42px;
+    gap: 11px;
+  }
+}
+
+@media (max-width: 1080px) {
+  .btn-back {
+    top: 20px;
+    left: 20px;
+    width: 40px;
+    height: 40px;
+    gap: 10px;
+  }
+}
+
+@media (max-width: 720px) {
+  .btn-back {
+    top: 16px;
+    left: 16px;
+    width: 38px;
+    height: 38px;
+    gap: 8px;
+  }
+}
+
+@media (max-width: 450px) {
+  .btn-back {
+    top: 12px;
+    left: 12px;
+    width: 36px;
+    height: 36px;
+    gap: 6px;
+  }
+}
