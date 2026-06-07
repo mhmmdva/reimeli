@@ -500,6 +500,16 @@
   min-width: 100%;
 }
 
+#carouselContainer {
+  touch-action: pan-y;
+}
+
+.carousel-video {
+  display: block;
+  object-fit: contain;
+  touch-action: manipulation;
+}
+
 .carousel-dot {
   width: 8px;
   height: 8px;

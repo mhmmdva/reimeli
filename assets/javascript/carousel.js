@@ -3,14 +3,30 @@ const totalSlides = 2;
 let touchStartX = 0;
 let touchEndX = 0;
 let isSwiping = false;
+let carouselInitialized = false;
+
+function isInteractiveCarouselTarget(target) {
+  return target.closest('video, button, a');
+}
 
 // Init carousel & swipe events
 function initCarousel() {
   const container = document.getElementById('carouselContainer');
   if (!container) return;
+  if (carouselInitialized) {
+    updateCarousel();
+    return;
+  }
+
+  carouselInitialized = true;
 
   // Touch start
   container.addEventListener('touchstart', (e) => {
+    if (isInteractiveCarouselTarget(e.target)) {
+      isSwiping = false;
+      return;
+    }
+
     touchStartX = e.touches[0].clientX;
     isSwiping = true;
   }, { passive: true });
@@ -25,6 +41,11 @@ function initCarousel() {
   // Touch end → hitung arah swipe
   container.addEventListener('touchend', (e) => {
     if (!isSwiping) return;
+    if (isInteractiveCarouselTarget(e.target)) {
+      isSwiping = false;
+      return;
+    }
+
     touchEndX = e.changedTouches[0].clientX;
     handleSwipe();
     isSwiping = false;
