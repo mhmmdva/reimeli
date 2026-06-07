@@ -89,18 +89,8 @@ function nextCoordinate() {
     currentCoordIndex++;
     animateCoordChange('next', selectedName);
   } else {
-    // Semua koordinat selesai
-    Swal.fire({
-      title: 'Kenangan itu nyata.',
-      text: 'Setiap titik menyimpan cerita yang hanya kalian yang tahu.',
-      icon: 'success',
-      confirmButtonText: 'Misi Selesai!',
-      confirmButtonColor: '#8b3a52',
-      allowOutsideClick: false,
-      customClass: caesarSwalClass,
-    }).then(() => {
-      showScreen('screen7', 'screen8');
-    });
+    showScreen('screen7', 'screen8');
+    setTimeout(() => initCarousel(), 800);
   }
 }
 

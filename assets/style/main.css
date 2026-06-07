@@ -492,3 +492,40 @@
     gap: 6px;
   }
 }
+
+
+
+/* ===== CAROUSEL ===== */
+.carousel-slide {
+  min-width: 100%;
+}
+
+.carousel-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 99px;
+  background: rgba(201, 120, 138, 0.3);
+  border: none;
+  cursor: pointer;
+  transition: all 0.4s ease;
+  padding: 0;
+}
+
+.carousel-dot.active {
+  width: 24px;
+  background: #8b3a52;
+}
+
+.btn-carousel-arrow {
+  background: rgba(255, 255, 255, 0.35);
+  backdrop-filter: blur(4px);
+  border: 1px solid rgba(255, 255, 255, 0.4);
+  color: #8b3a52;
+  cursor: pointer;
+  transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+.btn-carousel-arrow:hover {
+  background: rgba(255, 255, 255, 0.85);
+  transform: translateY(-50%) scale(1.1);
+}

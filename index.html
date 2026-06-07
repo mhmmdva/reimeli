@@ -255,6 +255,74 @@
     </div>
   </div>
 
+<div id="screen8" class="fixed inset-0 flex flex-col items-center justify-center z-10 pointer-events-none" style="opacity:0;">
+  <div class="text-center w-full px-5" style="max-width:480px;">
+
+    <!-- Teks -->
+    <p class="font-cormorant italic mb-6 color-primary" style="font-size:clamp(18px,3.5vw,22px);line-height:1.8;">
+      "Terima kasih sudah sampai sejauh ini, dan menjadi salah satu saksi pernikahan"
+    </p>
+
+    <!-- Carousel Container -->
+    <div class="relative overflow-hidden rounded-2xl" id="carouselContainer">
+
+      <!-- Track -->
+      <div id="carouselTrack"
+        class="flex"
+        style="transition:transform 0.5s ease;will-change:transform;">
+
+        <!-- Slide 1: Gambar -->
+        <div class="carousel-slide flex-shrink-0 w-full">
+          <img
+            src="assets/media/enggament.jpg"
+            alt="Kenangan"
+            class="w-full rounded-2xl object-cover"
+            style="max-height:65vh;min-height:200px;" />
+        </div>
+
+        <!-- Slide 2: Video -->
+        <div class="carousel-slide flex-shrink-0 w-full">
+          <video
+            id="carouselVideo"
+            controls
+            playsinline
+            class="w-full rounded-2xl"
+            style="max-height:65vh;min-height:200px;background:#000;">
+            <source src="assets/media/reimeli.mp4" type="video/mp4" />
+            Browser kamu tidak mendukung video.
+          </video>
+        </div>
+
+      </div>
+
+      <!-- Arrow Kiri -->
+      <button
+        id="carouselPrev"
+        onclick="carouselPrev()"
+        class="absolute left-2 top-1/2 -translate-y-1/2 w-8 h-8 rounded-full flex items-center justify-center btn-carousel-arrow"
+        style="opacity:0;pointer-events:none;">
+        <i class="ri-arrow-left-s-line text-lg"></i>
+      </button>
+
+      <!-- Arrow Kanan -->
+      <button
+        id="carouselNext"
+        onclick="carouselNext()"
+        class="absolute right-2 top-1/2 -translate-y-1/2 w-8 h-8 rounded-full flex items-center justify-center btn-carousel-arrow">
+        <i class="ri-arrow-right-s-line text-lg"></i>
+      </button>
+
+    </div>
+
+    <!-- Dots Indicator -->
+    <div class="flex justify-center items-center gap-2 mt-4">
+      <button onclick="goToSlide(0)" id="dot-0" class="carousel-dot active"></button>
+      <button onclick="goToSlide(1)" id="dot-1" class="carousel-dot"></button>
+    </div>
+
+  </div>
+</div>
+  
 
 
 
@@ -272,6 +340,7 @@
   <script src="assets/javascript/chooseName.js"></script>
   <script src="assets/javascript/caesar.js"></script>
   <script src="assets/javascript/coordinate.js"></script>
+  <script src="assets/javascript/carousel.js"></script>
   <script src="assets/javascript/main.js"></script>
 </body>
 
